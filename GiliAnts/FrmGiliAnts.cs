@@ -13,14 +13,14 @@ namespace GiliAnts
     public partial class FrmGiliAnts : Form
     {
         int antLimit = 1000;
-        Ant[] ants;
+        Hive hive;
 
 
         public FrmGiliAnts()
         {
             InitializeComponent();
 
-            ants = new Ant[antLimit];
+
         }
 
         private void FrmGiliAnts_Load(object sender, EventArgs e)
@@ -37,17 +37,8 @@ namespace GiliAnts
 
             if(TmrMain.Enabled == false) //setup
             {
-                Random rnd = new Random();
-                Random direction = new Random();
-                for (int i = 0; i < antLimit; i++)
-                {
-                    Color color = Color.FromArgb(   rnd.Next(0, 256),
-                                                rnd.Next(0, 256),
-                                                rnd.Next(0, 256));
-                    
-                    ants[i] = new Ant(w / 2, h / 2, color, direction.Next(0,5));
-                }
 
+                hive = new Hive(w / 2, h / 2, antLimit);
                 TmrMain.Enabled = true;
                 
             }
@@ -59,19 +50,19 @@ namespace GiliAnts
 
             for (int i = 0; i < antLimit; i++)
             {
-                pen = new Pen(ants[i].Color);
-                g.DrawRectangle(pen, new Rectangle(ants[i].Position, new Size(antSize, antSize)));
+                pen = new Pen(hive.Ants[i].Color);
+                g.DrawRectangle(pen, new Rectangle(hive.Ants[i].Position, new Size(antSize, antSize)));
             }
         }
 
         private void PrintDiagnostics(Graphics g)
         {
-            g.DrawString("Ants: " + ants.Length, this.Font, Brushes.Black, 0, 0);
+            g.DrawString("Ants: " + hive.Ants.Length, this.Font, Brushes.Black, 0, 0);
         }
 
         private void TmrMain_Tick(object sender, EventArgs e)
         {
-            foreach(Ant a in ants)
+            foreach(Ant a in hive.Ants)
             {
                 a.Move();
             }
