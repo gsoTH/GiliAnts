@@ -37,26 +37,26 @@ namespace GiliAnts
 
             if(TmrMain.Enabled == false) //setup
             {
+                Random rnd = new Random();
                 for (int i = 0; i < antLimit; i++)
                 {
-                    ants[i] = new Ant(w / 2, h / 2);
+                    Color color = Color.FromArgb(   rnd.Next(0, 256),
+                                                rnd.Next(0, 256),
+                                                rnd.Next(0, 256));
+                    ants[i] = new Ant(w / 2, h / 2, color);
                 }
 
                 TmrMain.Enabled = true;
                 
             }
 
-            Random rnd = new Random();
+            
 
             int antSize = 3;
             Pen pen;
             for (int i = 0; i < antLimit; i++)
             {
-                pen = new Pen(Color.FromArgb(   rnd.Next(0, 256),
-                                                rnd.Next(0, 256),
-                                                rnd.Next(0, 256)
-                                            ));
-
+                pen = new Pen(ants[i].Color);
                 g.DrawRectangle(pen, new Rectangle(ants[i].Position, new Size(antSize, antSize)));
             }
         }

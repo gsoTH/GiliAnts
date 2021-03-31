@@ -7,10 +7,16 @@ namespace GiliAnts
     {
         static Random rnd = new Random();
         private Point position;
+        private Color color;
 
         public Ant(int x, int y)
         {
             this.position = new Point(x, y);
+        }
+
+        public Ant(int x, int y, Color color):this(x, y)
+        {
+            this.Color = color;
         }
 
         public void Move()
@@ -40,6 +46,11 @@ namespace GiliAnts
         public Point Position
         {
             get => position;
+        }
+        public Color Color
+        { 
+            get => color; 
+            set => color = value; 
         }
     }
 }
