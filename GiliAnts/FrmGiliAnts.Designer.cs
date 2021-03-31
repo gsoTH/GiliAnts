@@ -28,7 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            this.TmrMain = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
+            // 
+            // TmrMain
+            // 
+            this.TmrMain.Tick += new System.EventHandler(this.TmrMain_Tick);
             // 
             // FrmGiliAnts
             // 
@@ -43,11 +49,15 @@
             this.MinimumSize = new System.Drawing.Size(800, 600);
             this.Name = "FrmGiliAnts";
             this.Text = "Gili Ants";
+            this.Load += new System.EventHandler(this.FrmGiliAnts_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.FrmGiliAnts_Paint);
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Timer TmrMain;
     }
 }
 
