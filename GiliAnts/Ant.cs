@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 
 namespace GiliAnts
@@ -6,6 +7,7 @@ namespace GiliAnts
     public class Ant
     {
         static Random rnd = new Random();
+        static List<Pheromone> pheromones = new List<Pheromone>();
         private Point position;
         private Color color;
         private int generalDirection;
@@ -32,8 +34,11 @@ namespace GiliAnts
 
         public void Move()
         {
-            //TODO: Bei Bewegungen sollten Pheromone verstreut werden (static list pheromones?), die den restlichen Ants eine Idee zur Navigation geben.
 
+            pheromones.Add(new Pheromone(this.position));
+            //TODO: Pheromone sollten im Lauf der Zeit schwächer werden.
+            //TODO: Pheromone sollten stärker werden, je häufiger eine Ant darüber läuft.
+            //TODO: Pheromone sollten Einfluss auf die Navigation der Ant haben.
 
             if (steps < stepLimit)
             {
