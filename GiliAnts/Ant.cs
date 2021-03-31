@@ -16,7 +16,7 @@ namespace GiliAnts
         public void Move()
         {
             int step = 1;
-            int i = rnd.Next(0, 3);
+            int i = rnd.Next(0, 4);
             
             switch (i)
             {
