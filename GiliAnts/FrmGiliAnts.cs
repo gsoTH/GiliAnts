@@ -52,7 +52,7 @@ namespace GiliAnts
                 
             }
 
-            
+            PrintDiagnostics(g);
 
             int antSize = 3;
             Pen pen;
@@ -62,6 +62,11 @@ namespace GiliAnts
                 pen = new Pen(ants[i].Color);
                 g.DrawRectangle(pen, new Rectangle(ants[i].Position, new Size(antSize, antSize)));
             }
+        }
+
+        private void PrintDiagnostics(Graphics g)
+        {
+            g.DrawString("Ants: " + ants.Length, this.Font, Brushes.Black, 0, 0);
         }
 
         private void TmrMain_Tick(object sender, EventArgs e)
