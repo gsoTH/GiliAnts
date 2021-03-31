@@ -9,6 +9,7 @@ namespace GiliAnts
         private Point position;
         private Color color;
         private int generalDirection;
+        private int negativeGeneralDirection;
 
         public Ant(int x, int y)
         {
@@ -23,31 +24,42 @@ namespace GiliAnts
         public Ant(int x, int y, Color color, int generalDirection) : this(x, y, color)
         {
             this.generalDirection = generalDirection;
+            this.negativeGeneralDirection = generalDirection - 4;
         }
 
         public void Move()
         {
             int step = 3;
 
-            int i = rnd.Next(rnd.Next(0, generalDirection), generalDirection);
+            int i = rnd.Next(0,5);
             
-            switch (i)
+            if(i != negativeGeneralDirection)
             {
-                case 0: //move north
-                    this.position.Y -= step;
-                    break;
-                case 1: //move east
-                    this.position.X += step;
-                    break;
-                case 2: //move south
-                    this.position.Y += step;
-                    break;
-                case 3: //move west
-                    this.position.X -= step;
-                    break;
-                default:
-                    break;
+                if(i == generalDirection)
+                {
+                    step = step * 2;
+                }
+
+                switch (i)
+                {
+                    case 0: //move north
+                        this.position.Y -= step;
+                        break;
+                    case 1: //move east
+                        this.position.X += step;
+                        break;
+                    case 2: //move south
+                        this.position.Y += step;
+                        break;
+                    case 3: //move west
+                        this.position.X -= step;
+                        break;
+                    default:
+                        break;
+                }
             }
+
+           
         }
 
         public Point Position
