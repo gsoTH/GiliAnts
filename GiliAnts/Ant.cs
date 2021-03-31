@@ -13,18 +13,18 @@ namespace GiliAnts
 
         public Ant(int x, int y)
         {
-            this.position = new Point(x, y);
+            Position = new Point(x, y);
         }
 
         public Ant(int x, int y, Color color):this(x, y)
         {
-            this.Color = color;
+            Color = color;
         }
 
         public Ant(int x, int y, Color color, int generalDirection) : this(x, y, color)
         {
-            this.GeneralDirection = generalDirection;
-            this.NegativeGeneralDirection = generalDirection - 4;
+            GeneralDirection = generalDirection;
+            NegativeGeneralDirection = generalDirection - 4;
         }
 
         public void Move()
@@ -65,6 +65,7 @@ namespace GiliAnts
         public Point Position
         {
             get => position;
+            private set => position = value;
         }
         public Color Color
         { 
