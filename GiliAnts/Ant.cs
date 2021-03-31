@@ -29,7 +29,7 @@ namespace GiliAnts
         {
             int step = 3;
 
-            int i = rnd.Next(0, generalDirection);
+            int i = rnd.Next(rnd.Next(0, generalDirection), generalDirection);
             
             switch (i)
             {
