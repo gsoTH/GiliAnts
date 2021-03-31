@@ -32,6 +32,9 @@ namespace GiliAnts
 
         public void Move()
         {
+            //TODO: Bei Bewegungen sollten Pheromone verstreut werden (static list pheromones?), die den restlichen Ants eine Idee zur Navigation geben.
+
+
             if (steps < stepLimit)
             {
                 steps++;
@@ -42,6 +45,7 @@ namespace GiliAnts
                 GeneralDirection = rnd.Next(0,5);
             }
 
+            //TODO: Diese Variable sollte an zentraler Stelle stehen.
             int step = 3;
 
             int direction = rnd.Next(0,5);

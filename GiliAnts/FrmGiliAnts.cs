@@ -30,31 +30,43 @@ namespace GiliAnts
 
         private void FrmGiliAnts_Paint(object sender, PaintEventArgs e)
         {
+            int antSize = 3;
+            int hiveSize = 75;
+
+
             Graphics g = e.Graphics;
 
             int w = this.ClientSize.Width;
             int h = this.ClientSize.Height;
 
-            if(TmrMain.Enabled == false) //setup
+            if (TmrMain.Enabled == false) //setup
             {
-
+                //TODO: Futterquelle einbauen, damit die Ants ein Ziel haben.
                 hive = new Hive(w / 2, h / 2, antLimit);
                 TmrMain.Enabled = true;
-                
+
             }
 
             PrintDiagnostics(g);
+            PrintAnts(antSize, g);
+            PrintHive(hiveSize, g);
+        }
 
-            int antSize = 3;
-            Pen pen;
+        private void PrintHive(int hiveSize, Graphics g)
+        {
+            g.FillEllipse(Brushes.SaddleBrown, hive.Position.X - hiveSize / 2, hive.Position.Y - hiveSize / 2, hiveSize, hiveSize);
+        }
+
+        private void PrintAnts(int antSize, Graphics g)
+        {
+            
 
             for (int i = 0; i < antLimit; i++)
             {
-                pen = new Pen(hive.Ants[i].Color);
+                Pen pen = new Pen(hive.Ants[i].Color);
                 g.DrawRectangle(pen, new Rectangle(hive.Ants[i].Position, new Size(antSize, antSize)));
             }
         }
-
         private void PrintDiagnostics(Graphics g)
         {
             g.DrawString("Ants: " + hive.Ants.Length, this.Font, Brushes.Black, 0, 0);
