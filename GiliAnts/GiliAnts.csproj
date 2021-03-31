@@ -54,6 +54,7 @@
       <DependentUpon>FrmGiliAnts.cs</DependentUpon>
     </Compile>
     <Compile Include="Hive.cs" />
+    <Compile Include="Pheromone.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmGiliAnts.resx">
