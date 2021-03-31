@@ -38,12 +38,14 @@ namespace GiliAnts
             if(TmrMain.Enabled == false) //setup
             {
                 Random rnd = new Random();
+                Random direction = new Random();
                 for (int i = 0; i < antLimit; i++)
                 {
                     Color color = Color.FromArgb(   rnd.Next(0, 256),
                                                 rnd.Next(0, 256),
                                                 rnd.Next(0, 256));
-                    ants[i] = new Ant(w / 2, h / 2, color);
+                    
+                    ants[i] = new Ant(w / 2, h / 2, color, direction.Next(0,5));
                 }
 
                 TmrMain.Enabled = true;
@@ -54,6 +56,7 @@ namespace GiliAnts
 
             int antSize = 3;
             Pen pen;
+
             for (int i = 0; i < antLimit; i++)
             {
                 pen = new Pen(ants[i].Color);
