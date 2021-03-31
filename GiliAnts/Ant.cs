@@ -31,16 +31,16 @@ namespace GiliAnts
         {
             int step = 3;
 
-            int i = rnd.Next(0,5);
+            int direction = rnd.Next(0,5);
             
-            if(i != NegativeGeneralDirection)
+            if(direction != NegativeGeneralDirection)
             {
-                if(i == GeneralDirection)
+                if(direction == GeneralDirection)
                 {
                     step = step * 2;
                 }
 
-                switch (i)
+                switch (direction)
                 {
                     case 0: //move north
                         this.position.Y -= step;
