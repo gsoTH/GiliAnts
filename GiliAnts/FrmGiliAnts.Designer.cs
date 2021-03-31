@@ -51,6 +51,7 @@
             this.Text = "Gili Ants";
             this.Load += new System.EventHandler(this.FrmGiliAnts_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.FrmGiliAnts_Paint);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FrmGiliAnts_KeyPress);
             this.ResumeLayout(false);
 
         }

@@ -73,5 +73,13 @@ namespace GiliAnts
 
             Refresh();
         }
+
+        private void FrmGiliAnts_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == ' ')
+            {
+                TmrMain.Enabled = !TmrMain.Enabled;
+            }
+        }
     }
 }
