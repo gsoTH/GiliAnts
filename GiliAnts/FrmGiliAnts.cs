@@ -31,6 +31,7 @@ namespace GiliAnts
         private void FrmGiliAnts_Paint(object sender, PaintEventArgs e)
         {
             int antSize = 3;
+            int pheromoneRadius = antSize * 2;
             int hiveSize = 75;
 
 
@@ -50,6 +51,11 @@ namespace GiliAnts
             PrintDiagnostics(g);
             PrintAnts(antSize, g);
             PrintHive(hiveSize, g);
+
+            foreach (Pheromone p in Ant.Pheromones)
+            {
+                g.FillEllipse(Brushes.Blue, p.Position.X, p.Position.Y, p.Intensity*5, p.Intensity*5);
+            }
         }
 
         private void PrintHive(int hiveSize, Graphics g)
@@ -78,6 +84,11 @@ namespace GiliAnts
             {
                 a.Move();
             }
+
+            //foreach(Pheromone p in Ant.Pheromones)
+            //{
+            //    p.Degrade();
+            //}
 
             Refresh();
         }

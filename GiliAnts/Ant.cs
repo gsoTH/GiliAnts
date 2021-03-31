@@ -34,7 +34,7 @@ namespace GiliAnts
 
         public void Move()
         {
-
+            //TODO: Pheromone sollte Farbe des Erzeugers besitzen.
             Pheromones.Add(new Pheromone(this.position));
             //TODO: Pheromone sollten im Lauf der Zeit schwächer werden.
             //TODO: Pheromone sollten stärker werden, je häufiger eine Ant darüber läuft.
