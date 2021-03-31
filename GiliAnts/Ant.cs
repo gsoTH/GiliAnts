@@ -5,7 +5,7 @@ namespace GiliAnts
 {
     public class Ant
     {
-        Random rnd = new Random();
+        static Random rnd = new Random();
         private Point position;
 
         public Ant(int x, int y)
