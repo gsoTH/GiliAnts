@@ -8,6 +8,7 @@ namespace GiliAnts
         static Random rnd = new Random();
         private Point position;
         private Color color;
+        private int generalDirection;
 
         public Ant(int x, int y)
         {
@@ -19,10 +20,16 @@ namespace GiliAnts
             this.Color = color;
         }
 
+        public Ant(int x, int y, Color color, int generalDirection) : this(x, y, color)
+        {
+            this.generalDirection = generalDirection;
+        }
+
         public void Move()
         {
             int step = 3;
-            int i = rnd.Next(0, 4);
+
+            int i = rnd.Next(0, generalDirection);
             
             switch (i)
             {
