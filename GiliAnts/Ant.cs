@@ -23,8 +23,8 @@ namespace GiliAnts
 
         public Ant(int x, int y, Color color, int generalDirection) : this(x, y, color)
         {
-            this.generalDirection = generalDirection;
-            this.negativeGeneralDirection = generalDirection - 4;
+            this.GeneralDirection = generalDirection;
+            this.NegativeGeneralDirection = generalDirection - 4;
         }
 
         public void Move()
@@ -33,9 +33,9 @@ namespace GiliAnts
 
             int i = rnd.Next(0,5);
             
-            if(i != negativeGeneralDirection)
+            if(i != NegativeGeneralDirection)
             {
-                if(i == generalDirection)
+                if(i == GeneralDirection)
                 {
                     step = step * 2;
                 }
@@ -71,5 +71,7 @@ namespace GiliAnts
             get => color; 
             set => color = value; 
         }
+        int GeneralDirection { get => generalDirection; set => generalDirection = value; }
+        int NegativeGeneralDirection { get => negativeGeneralDirection; set => negativeGeneralDirection = value; }
     }
 }
