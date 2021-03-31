@@ -38,6 +38,7 @@ namespace GiliAnts
             }
             else
             {
+                steps = 0;
                 GeneralDirection = rnd.Next(0,4);
             }
 
