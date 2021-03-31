@@ -39,7 +39,7 @@ namespace GiliAnts
             else
             {
                 steps = 0;
-                GeneralDirection = rnd.Next(0,4);
+                GeneralDirection = rnd.Next(0,5);
             }
 
             int step = 3;
