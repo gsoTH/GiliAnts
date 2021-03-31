@@ -35,7 +35,7 @@ namespace GiliAnts
         public void Move()
         {
 
-            pheromones.Add(new Pheromone(this.position));
+            Pheromones.Add(new Pheromone(this.position));
             //TODO: Pheromone sollten im Lauf der Zeit schwächer werden.
             //TODO: Pheromone sollten stärker werden, je häufiger eine Ant darüber läuft.
             //TODO: Pheromone sollten Einfluss auf die Navigation der Ant haben.
@@ -93,5 +93,6 @@ namespace GiliAnts
             set => color = value; 
         }
         int GeneralDirection { get => generalDirection; set => generalDirection = value; }
+        public static List<Pheromone> Pheromones { get => pheromones; set => pheromones = value; }
     }
 }
