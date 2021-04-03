@@ -12,7 +12,7 @@ namespace GiliAnts
 {
     public partial class FrmGiliAnts : Form
     {
-        int antLimit = 5;
+        int antLimit = 100;
         Hive hive;
 
 
@@ -59,13 +59,13 @@ namespace GiliAnts
         {
             foreach (Pheromone p in Ant.Pheromones)
             {
-                g.DrawEllipse(new Pen(p.Color), p.Position.X - p.Intensity / 2, p.Position.Y - p.Intensity / 2, p.Intensity, p.Intensity);
-                
+                g.DrawEllipse(new Pen(p.Color), p.Rectangle);                
             }
         }
 
         private void DrawHive(int hiveSize, Graphics g)
         {
+            
             g.FillEllipse(Brushes.SaddleBrown, hive.Position.X - hiveSize / 2, hive.Position.Y - hiveSize / 2, hiveSize, hiveSize);
         }
 

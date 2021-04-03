@@ -46,6 +46,16 @@ namespace GiliAnts
         public Color Color { get => color; set => color = value; }
 
         /// <summary>
+        /// A rectangle, positioned over the center of position.
+        /// </summary>
+        public Rectangle Rectangle
+        {
+            get
+            {
+                return new Rectangle(Position.X - Intensity / 2, Position.Y - Intensity / 2, Intensity, intensity);
+            }
+        }
+        /// <summary>
         /// Reduces Intensity of the pheromone. Pheromone will be reduced at every tick. Pheremone ist removed once intensity < 0.
         /// </summary>
         public void Degrade()
