@@ -7,6 +7,12 @@ namespace GiliAnts
     {
         private Point position;
         private int intensity;
+        private Color color;
+
+        public Pheromone(Point position, int intensity, Color color):this(position, intensity)
+        {
+            this.Color = color;
+        }
 
         public Pheromone(Point position, int intensity)
         {
@@ -18,6 +24,7 @@ namespace GiliAnts
 
         public Point Position { get => position; set => position = value; }
         public int Intensity { get => intensity; set => intensity = value; }
+        public Color Color { get => color; set => color = value; }
 
         public void Degrade()
         {

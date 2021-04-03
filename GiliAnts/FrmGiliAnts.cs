@@ -12,7 +12,7 @@ namespace GiliAnts
 {
     public partial class FrmGiliAnts : Form
     {
-        int antLimit = 1;
+        int antLimit = 100;
         Hive hive;
 
 
@@ -47,14 +47,14 @@ namespace GiliAnts
                 TmrMain.Enabled = true;
 
             }
-
+           
             PrintDiagnostics(g);
             PrintAnts(antSize, g);
             PrintHive(hiveSize, g);
 
-            foreach (Pheromone p in Ant.Pheromones)
+            foreach (Pheromone p in  Ant.Pheromones)
             {
-                g.FillEllipse(Brushes.Blue, p.Position.X, p.Position.Y, p.Intensity*5, p.Intensity*5);
+                g.FillEllipse(new SolidBrush(p.Color), p.Position.X, p.Position.Y, p.Intensity, p.Intensity);
             }
         }
 

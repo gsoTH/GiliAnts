@@ -34,8 +34,7 @@ namespace GiliAnts
 
         public void Move()
         {
-            //TODO: Pheromone sollte Farbe des Erzeugers besitzen.
-            Pheromones.Add(new Pheromone(this.position, 5));
+            Pheromones.Add(new Pheromone(this.position, 5, this.color));
             
             for (int i = 0; i < Pheromones.Count; i++)
             {
