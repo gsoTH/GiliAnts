@@ -9,11 +9,22 @@ namespace GiliAnts
         private int intensity;
         private Color color;
 
+        /// <summary>
+        /// Creates a new pheromone.
+        /// </summary>
+        /// <param name="position">Where the pheromone is dropped.</param>
+        /// <param name="intensity">Basically Diameter. Will be reduced at every tick. Pheremone ist removed once intensity < 0.</param>
+        /// <param name="color">Add color of creating Ant, for warm fuzzy family feelings.</param>
         public Pheromone(Point position, int intensity, Color color):this(position, intensity)
         {
             this.Color = color;
         }
 
+        /// <summary>
+        /// Creates a new pheromone.
+        /// </summary>
+        /// <param name="position">Where the pheromone is dropped.</param>
+        /// <param name="intensity">Basically Diameter. Will be reduced at every tick. Pheremone ist removed once intensity < 0.</param>
         public Pheromone(Point position, int intensity)
         {
             this.position = position;
@@ -21,12 +32,22 @@ namespace GiliAnts
         }
 
         //TODO: Diese Variable sollte an zentraler Stelle stehen: Default-Wert Pheromonstärke
+        /// <summary>
+        /// Creates a new pheromone, normally used for test only.
+        /// </summary>
+        /// <param name="position">Where the pheromone is dropped.</param>
         public Pheromone(Point position) : this(position, 1) { }
 
         public Point Position { get => position; set => position = value; }
+        /// <summary>
+        /// Basically Diameter. Will be reduced at every tick. Pheremone ist removed once intensity < 0.
+        /// </summary>
         public int Intensity { get => intensity; set => intensity = value; }
         public Color Color { get => color; set => color = value; }
 
+        /// <summary>
+        /// Reduces Intensity of the pheromone. Pheromone will be reduced at every tick. Pheremone ist removed once intensity < 0.
+        /// </summary>
         public void Degrade()
         {
             Intensity--;
