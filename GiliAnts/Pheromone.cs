@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace GiliAnts
 {
-    public struct Pheromone
+    public class Pheromone
     {
         private Point position;
         private int intensity;
@@ -21,9 +21,10 @@ namespace GiliAnts
 
         public void Degrade()
         {
-            this.intensity -= 1;
-            
-            if(intensity <= 0)
+            Intensity--;
+
+
+            if (intensity <= 0)
             {
                 Ant.Pheromones.Remove(this);
             }
