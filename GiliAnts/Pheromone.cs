@@ -50,7 +50,7 @@ namespace GiliAnts
         /// </summary>
         public void Degrade()
         {
-            Intensity--;
+            intensity--;
 
 
             if (intensity <= 0)

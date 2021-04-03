@@ -12,7 +12,7 @@ namespace GiliAnts
 {
     public partial class FrmGiliAnts : Form
     {
-        int antLimit = 100;
+        int antLimit = 5;
         Hive hive;
 
 
@@ -30,8 +30,8 @@ namespace GiliAnts
 
         private void FrmGiliAnts_Paint(object sender, PaintEventArgs e)
         {
+
             int antSize = 3;
-            int pheromoneRadius = antSize * 2;
             int hiveSize = 75;
 
 
@@ -47,23 +47,29 @@ namespace GiliAnts
                 TmrMain.Enabled = true;
 
             }
-           
-            PrintDiagnostics(g);
-            PrintAnts(antSize, g);
-            PrintHive(hiveSize, g);
 
-            foreach (Pheromone p in  Ant.Pheromones)
+            PrintDiagnostics(g);
+            DrawAnts(antSize, g);
+            DrawPheromones(g);
+            DrawHive(hiveSize, g);
+            
+        }
+
+        private static void DrawPheromones(Graphics g)
+        {
+            foreach (Pheromone p in Ant.Pheromones)
             {
-                g.FillEllipse(new SolidBrush(p.Color), p.Position.X, p.Position.Y, p.Intensity, p.Intensity);
+                g.DrawEllipse(new Pen(p.Color), p.Position.X - p.Intensity / 2, p.Position.Y - p.Intensity / 2, p.Intensity, p.Intensity);
+                
             }
         }
 
-        private void PrintHive(int hiveSize, Graphics g)
+        private void DrawHive(int hiveSize, Graphics g)
         {
             g.FillEllipse(Brushes.SaddleBrown, hive.Position.X - hiveSize / 2, hive.Position.Y - hiveSize / 2, hiveSize, hiveSize);
         }
 
-        private void PrintAnts(int antSize, Graphics g)
+        private void DrawAnts(int antSize, Graphics g)
         {
             
 

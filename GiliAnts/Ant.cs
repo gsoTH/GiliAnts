@@ -41,7 +41,7 @@ namespace GiliAnts
             {
                 Pheromones[i].Degrade();
             }
-            //TODO: Pheromone sollten im Lauf der Zeit schwächer werden.
+
             //TODO: Pheromone sollten stärker werden, je häufiger eine Ant darüber läuft.
             //TODO: Pheromone sollten Einfluss auf die Navigation der Ant haben.
 
