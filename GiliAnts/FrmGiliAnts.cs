@@ -14,6 +14,7 @@ namespace GiliAnts
     {
         int antLimit = 1000;
         Hive hive;
+        static bool showPheromones = false;
 
 
         public FrmGiliAnts()
@@ -57,10 +58,14 @@ namespace GiliAnts
 
         private static void DrawPheromones(Graphics g)
         {
-            foreach (Pheromone p in Ant.Pheromones)
+            if (showPheromones == true)
             {
-                g.DrawEllipse(new Pen(p.Color), p.Rectangle);                
+                foreach (Pheromone p in Ant.Pheromones)
+                {
+                    g.DrawEllipse(new Pen(p.Color), p.Rectangle);                
+                }
             }
+            
         }
 
         private void DrawHive(int hiveSize, Graphics g)
@@ -82,6 +87,16 @@ namespace GiliAnts
         private void PrintDiagnostics(Graphics g)
         {
             g.DrawString("Ants: " + hive.Ants.Length, this.Font, Brushes.Black, 0, 0);
+
+            if (showPheromones)
+            {
+                g.DrawString("Pheromones: " + Ant.Pheromones.Count, this.Font, Brushes.Black, 0, 10);
+            } 
+            else
+            {
+                g.DrawString("Pheromones: (press p)", this.Font, Brushes.Black, 0, 10);
+            }
+            
         }
 
         private void TmrMain_Tick(object sender, EventArgs e)
@@ -104,6 +119,11 @@ namespace GiliAnts
             if (e.KeyChar == ' ')
             {
                 TmrMain.Enabled = !TmrMain.Enabled;
+            }
+
+            if(e.KeyChar == 'p' || e.KeyChar == 'P')
+            {
+                showPheromones = !showPheromones;
             }
         }
     }
