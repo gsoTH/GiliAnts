@@ -12,7 +12,7 @@ namespace GiliAnts
 {
     public partial class FrmGiliAnts : Form
     {
-        int antLimit = 2;
+        int antLimit = 1000;
         Hive hive;
 
 
