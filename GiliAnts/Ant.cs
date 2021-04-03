@@ -34,6 +34,7 @@ namespace GiliAnts
 
         public void Move()
         {
+            //TODO: Diese Variable sollte an zentraler Stelle stehen: Wert für Pheromonstärke (die Ziffer).
             Pheromones.Add(new Pheromone(this.position, 5, this.color));
             
             for (int i = 0; i < Pheromones.Count; i++)
@@ -54,7 +55,7 @@ namespace GiliAnts
                 GeneralDirection = rnd.Next(0,5);
             }
 
-            //TODO: Diese Variable sollte an zentraler Stelle stehen.
+            //TODO: Diese Variable sollte an zentraler Stelle stehen: Schrittweite einer Ant
             int step = 3;
 
             int direction = rnd.Next(0,5);

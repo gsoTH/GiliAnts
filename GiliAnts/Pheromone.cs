@@ -20,6 +20,7 @@ namespace GiliAnts
             this.intensity = intensity;
         }
 
+        //TODO: Diese Variable sollte an zentraler Stelle stehen: Default-Wert Pheromonstärke
         public Pheromone(Point position) : this(position, 1) { }
 
         public Point Position { get => position; set => position = value; }
