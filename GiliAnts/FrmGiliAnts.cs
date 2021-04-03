@@ -12,7 +12,7 @@ namespace GiliAnts
 {
     public partial class FrmGiliAnts : Form
     {
-        int antLimit = 100;
+        int antLimit = 2;
         Hive hive;
 
 
@@ -89,6 +89,11 @@ namespace GiliAnts
             foreach(Ant a in hive.Ants)
             {
                 a.Move();
+            }
+
+            for (int i = 0; i < Ant.Pheromones.Count; i++)
+            {
+                Ant.Pheromones[i].Degrade();
             }
 
             Refresh();

@@ -37,10 +37,7 @@ namespace GiliAnts
             //TODO: Diese Variable sollte an zentraler Stelle stehen: Wert für Pheromonstärke (die Ziffer).
             Pheromones.Add(new Pheromone(this.position, 50, this.color));
             
-            for (int i = 0; i < Pheromones.Count; i++)
-            {
-                Pheromones[i].Degrade();
-            }
+            
 
             //TODO: Pheromone sollten stärker werden, je häufiger eine Ant darüber läuft.
             //TODO: Pheromone sollten Einfluss auf die Navigation der Ant haben.
