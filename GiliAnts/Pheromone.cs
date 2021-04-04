@@ -6,7 +6,7 @@ namespace GiliAnts
     public class Pheromone
     {
 
-        private const int default_intensity = 5;
+        private const int default_intensity = 10;
         private Point position;
         private int intensity;
         private Color color;

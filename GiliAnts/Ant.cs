@@ -35,7 +35,7 @@ namespace GiliAnts
         public void Move()
         {
             //TODO: Diese Variable sollte an zentraler Stelle stehen: Wert für Pheromonstärke (die Ziffer).
-            Pheromones.Add(new Pheromone(this.position, 50, this.color));
+            Pheromones.Add(new Pheromone(this.position, this.color));
             
             
 
