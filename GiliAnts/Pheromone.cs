@@ -5,6 +5,8 @@ namespace GiliAnts
 {
     public class Pheromone
     {
+
+        private const int default_intensity = 5;
         private Point position;
         private int intensity;
         private Color color;
@@ -15,7 +17,7 @@ namespace GiliAnts
         /// <param name="position">Where the pheromone is dropped.</param>
         /// <param name="intensity">Basically Diameter. Will be reduced at every tick. Pheremone ist removed once intensity < 0.</param>
         /// <param name="color">Add color of creating Ant, for warm fuzzy family feelings.</param>
-        public Pheromone(Point position, int intensity, Color color):this(position, intensity)
+        public Pheromone(Point position, int intensity, Color color):this(position, default_intensity)
         {
             this.Color = color;
         }
@@ -31,12 +33,11 @@ namespace GiliAnts
             this.intensity = intensity;
         }
 
-        //TODO: Diese Variable sollte an zentraler Stelle stehen: Default-Wert Pheromonstärke
         /// <summary>
         /// Creates a new pheromone, normally used for test only.
         /// </summary>
         /// <param name="position">Where the pheromone is dropped.</param>
-        public Pheromone(Point position) : this(position, 1) { }
+        public Pheromone(Point position) : this(position, default_intensity) { }
 
         public Point Position { get => position; set => position = value; }
         /// <summary>
